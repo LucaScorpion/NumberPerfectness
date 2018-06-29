@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Number Perfectness</title>
+
+        <!-- Vis.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+
+        <link rel="stylesheet" href="style.css">
+        <script src="numbers.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Number perfectness</h1>
+        </header>
+        <main>
+            <div class="medium">
+                <h2>
+                    A visual representation of the sums of number's factors.
+                </h2>
+                <div class="row">
+                    <p>
+                        Inspired by this Numberphile video about triperfect numbers.
+                    </p>
+                    <iframe id="video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/DhPtIf-hpuU?rel=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div id="optionsContainer">
+                <h2>Try it!</h2>
+
+                <div id="options" class="small">
+                    <div>
+                        <label for="graphStyle">Graph style</label>
+                        <select id="graphStyle" autocomplete="off" onchange="setGraphStyle()">
+                            <option value="points">Points</option>
+                            <option value="both">Dotted line</option>
+                            <option value="line">Line</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input id="perfectOnly" type="checkbox" autocomplete="off" onchange="setPerfectOnly()">
+                        <label for="perfectOnly">Only show perfect numbers</label>
+                    </div>
+
+                    <div>
+                        <label for="minNumber">From</label>
+                        <input id="minNumber" type="number" min="1" value="1" autocomplete="off" onchange="updatePoints()">
+
+                        <label for="maxNumber">to</label>
+                        <input id="maxNumber" type="number" min="1" value="100" autocomplete="off" onchange="updatePoints()">
+                        <br>
+                        <p>
+                            <i>
+                                Note: less than 1000 points are generally calculated fairly quickly,
+                                in higher ranges the page can slow down significantly.
+                                The usability limit seems to be around 10000.
+                            </i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vis"></div>
+        </main>
+    </body>
+</html>
